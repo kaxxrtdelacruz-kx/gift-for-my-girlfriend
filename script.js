@@ -112,3 +112,16 @@ function createHeart() {
 
 // Create hearts every 400ms
 setInterval(createHeart, 400);
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+
+document.addEventListener("click", (e) => {
+    if (e.target.tagName === "IMG" && e.target.parentElement.id === "gallery") {
+        lightbox.style.display = "flex";
+        lightboxImg.src = e.target.src;
+    }
+
+    if (e.target.id === "lightbox") {
+        lightbox.style.display = "none";
+    }
+});
