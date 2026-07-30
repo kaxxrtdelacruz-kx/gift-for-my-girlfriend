@@ -58,3 +58,25 @@ document.getElementById("openBtn").addEventListener("click", () => {
 
     document.getElementById("openBtn").style.display = "none";
 });
+// ❤️ Floating Hearts Animation
+
+function createHeart() {
+    const heart = document.createElement("span");
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize = (18 + Math.random() * 22) + "px";
+
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.querySelector(".hearts").appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+// Create hearts every 400ms
+setInterval(createHeart, 400);
