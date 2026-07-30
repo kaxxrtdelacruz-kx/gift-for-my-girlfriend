@@ -80,52 +80,12 @@ document.getElementById("openBtn").addEventListener("click", () => {
     document.getElementById("letter").classList.remove("hidden");
 
     const gallery = document.getElementById("gallery");
+    gallery.innerHTML = "";
 
-gallery.querySelectorAll("img").forEach(img => {
-    img.onclick = () => {
-        document.getElementById("lightbox").style.display = "flex";
-        document.getElementById("lightboxImg").src = img.src;
-    };
-});
+    images.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        gallery.appendChild(img);
+    });
 
-document.getElementById("lightbox").onclick = () => {
-    document.getElementById("lightbox").style.display = "none";
-};
-
-    document.getElementById("openBtn").style.display = "none";
-});
-// ❤️ Floating Hearts Animation
-
-function createHeart() {
-    const heart = document.createElement("span");
-
-    heart.innerHTML = "❤️";
-
-    heart.style.left = Math.random() * 100 + "vw";
-
-    heart.style.fontSize = (18 + Math.random() * 22) + "px";
-
-    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
-
-    document.querySelector(".hearts").appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 8000);
-}
-
-// Create hearts every 400ms
-setInterval(createHeart, 400);
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightboxImg");
-
-document.addEventListener("click", (e) => {
-    if (e.target.tagName === "IMG" && e.target.parentElement.id === "gallery") {
-        lightbox.style.display = "flex";
-        lightboxImg.src = e.target.src;
-    }
-
-    if (e.target.id === "lightbox") {
-        lightbox.style.display = "none";
-    }
-});
+    document.getElementById("openBtn").style.display = 
