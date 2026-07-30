@@ -80,18 +80,12 @@ document.getElementById("openBtn").addEventListener("click", () => {
     document.getElementById("letter").classList.remove("hidden");
 
     const gallery = document.getElementById("gallery");
-    gallery.innerHTML = "";
 
-    images.forEach((src) => {
-    const img = document.createElement("img");
-    img.src = src;
-
+gallery.querySelectorAll("img").forEach(img => {
     img.onclick = () => {
         document.getElementById("lightbox").style.display = "flex";
-        document.getElementById("lightboxImg").src = src;
+        document.getElementById("lightboxImg").src = img.src;
     };
-
-    gallery.appendChild(img);
 });
 
 document.getElementById("lightbox").onclick = () => {
