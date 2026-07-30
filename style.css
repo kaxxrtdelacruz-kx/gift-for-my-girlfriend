@@ -152,8 +152,9 @@ button:hover{
     cursor:pointer;
 }
 
-.gallery img:hover{
-    transform:scale(1.07) rotate(1deg);
+.gallery img:hover {
+    transform: scale(1.02);
+}
 }
 
 h1{
