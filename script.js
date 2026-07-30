@@ -82,11 +82,21 @@ document.getElementById("openBtn").addEventListener("click", () => {
     const gallery = document.getElementById("gallery");
     gallery.innerHTML = "";
 
-    images.forEach(src => {
-        const img = document.createElement("img");
-        img.src = src;
-        gallery.appendChild(img);
-    });
+    images.forEach((src) => {
+    const img = document.createElement("img");
+    img.src = src;
+
+    img.onclick = () => {
+        document.getElementById("lightbox").style.display = "flex";
+        document.getElementById("lightboxImg").src = src;
+    };
+
+    gallery.appendChild(img);
+});
+
+document.getElementById("lightbox").onclick = () => {
+    document.getElementById("lightbox").style.display = "none";
+};
 
     document.getElementById("openBtn").style.display = "none";
 });
