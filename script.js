@@ -54,7 +54,9 @@ for (let i = 0; i < 80; i++) {
 
 }
 
-document.getElementById("letter").classList.remove("hidden");
+const letter = document.getElementById("letter");
+letter.classList.remove("hidden");
+letter.classList.add("show");
 function updateCounter() {
     const now = new Date();
     const diff = now - startDate;
