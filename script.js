@@ -24,7 +24,37 @@ const images = [
 ];
 
 const music = document.getElementById("bgMusic");
+music.play().catch((err) => console.log(err));
 
+// 🎉 Confetti Effect
+
+for (let i = 0; i < 80; i++) {
+
+    const confetti = document.createElement("span");
+
+    confetti.innerHTML = ["🎉","💖","✨","🌸"][Math.floor(Math.random()*4)];
+
+    confetti.style.position = "fixed";
+    confetti.style.left = Math.random()*100 + "vw";
+    confetti.style.top = "-30px";
+    confetti.style.fontSize = (18 + Math.random()*20) + "px";
+    confetti.style.zIndex = "9999";
+    confetti.style.transition = "transform 4s linear, opacity 4s";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(()=>{
+        confetti.style.transform = `translateY(${window.innerHeight+100}px) rotate(${Math.random()*720}deg)`;
+        confetti.style.opacity = "0";
+    },50);
+
+    setTimeout(()=>{
+        confetti.remove();
+    },4200);
+
+}
+
+document.getElementById("letter").classList.remove("hidden");
 function updateCounter() {
     const now = new Date();
     const diff = now - startDate;
